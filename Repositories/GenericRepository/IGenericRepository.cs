@@ -20,7 +20,7 @@ namespace ProiectTest.GenericRepository
 
         // Delete
         void Delete(TEntity entity);
-        void DeleteRange(IEnumerable<TEntity> entities);
+        Task DeleteAsync(TEntity entity);
 
         // Find
         TEntity FindById(Guid id);

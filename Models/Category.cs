@@ -6,7 +6,7 @@ namespace ProiectTest.Models
     {
         public string Name { get; set; }
 
-        // category has many products
-        public ICollection<Product> Products { get; set; }
+        // I want default value for this property
+        public ICollection<Product> Products { get; set; } = new List<Product>();
     }
 } 

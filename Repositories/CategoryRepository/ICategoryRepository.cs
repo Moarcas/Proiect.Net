@@ -1,7 +1,7 @@
 using ProiectTest.GenericRepository;
 using ProiectTest.Models;
 
-namespace ProiectTest.CategoryRepository
+namespace ProiectTest.CategoryRepositoryy
 {
     public interface ICategoryRepository : IGenericRepository<Category>
     {

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProiectTest.Data;
 using ProiectTest.Models;
+using ProiectTest.Services.CategoryService;
 
 namespace ProiectTest.Controllers
 {
@@ -9,36 +10,36 @@ namespace ProiectTest.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        private ProiectTestContext _context;
+        private readonly ICategoryService _categoryService;
 
-        public CategoryController(ProiectTestContext context)
+        public CategoryController(ICategoryService categoryService)
         {
-            _context = context;
+            _categoryService = categoryService;
         }
 
+        // async method
         [HttpGet]
-        public async Task<IActionResult> GetCategories()
+        public async Task<ActionResult<List<CategoryDTO>>> GetAll()
         {
-            return Ok(await _context.Categories.ToListAsync());
+            var categories = await _categoryService.GetAll();
+
+            return Ok(categories);
+        }
+        
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(Guid id)
+        {
+            await _categoryService.Delete(id);
+
+            return NoContent();
         }
 
-        [HttpGet("CategoryById/{id}")]
-        public async Task<IActionResult> GetCategoryById([FromRoute] Guid id)
+        [HttpPost]
+        public async Task<ActionResult<Category>> CreateCategory(Category category)
         {
-            var categoryById = _context.Categories.FirstOrDefaultAsync(category => category.Id == id);
+            var newCategory = await _categoryService.CreateCategory(category);
 
-            return Ok(categoryById);
-        }
-
-        [HttpPost("CreateCategory")]
-        public async Task<IActionResult> Create(CategoryDTO categoryDTO)
-        {
-            var newCategory = new Category
-            {
-                Name = categoryDTO.Name
-            };
-            await _context.Categories.AddAsync(newCategory);
-            await _context.SaveChangesAsync();
             return Ok(newCategory);
         }
     } 

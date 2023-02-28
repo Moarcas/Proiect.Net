@@ -72,6 +72,11 @@ namespace ProiectTest.GenericRepository
             _table.RemoveRange(entities);
         }
 
+        public async Task DeleteAsync(TEntity entity)
+        {
+            await Task.Run(() => _table.Remove(entity));
+        }
+
         // Find
 
         public TEntity FindById(Guid id)
@@ -95,6 +100,5 @@ namespace ProiectTest.GenericRepository
         {
             return await _context.SaveChangesAsync() > 0;
         }
-
     }
 }

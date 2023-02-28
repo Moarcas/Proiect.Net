@@ -2,13 +2,12 @@ using Microsoft.EntityFrameworkCore;
 using ProiectTest.Data;
 using ProiectTest.Models;
 
-namespace ProiectTest.CategoryRepository
+namespace ProiectTest.CategoryRepositoryy
 {
     public class CategoryRepository : GenericRepository.GenericRepository<Category>, ICategoryRepository
     {
         public CategoryRepository(ProiectTestContext context) : base(context)
-        {   
-        
+        {       
         }
 
         public List<Category> GetAllWithJoin()

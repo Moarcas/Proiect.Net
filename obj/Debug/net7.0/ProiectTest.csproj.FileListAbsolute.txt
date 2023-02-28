@@ -150,3 +150,5 @@
 /home/cosmin/Facultate/DAW/ProiectTest/obj/Debug/net7.0/ProiectTest.pdb
 /home/cosmin/Facultate/DAW/ProiectTest/obj/Debug/net7.0/ProiectTest.genruntimeconfig.cache
 /home/cosmin/Facultate/DAW/ProiectTest/obj/Debug/net7.0/ref/ProiectTest.dll
+/home/cosmin/Facultate/DAW/ProiectTest/bin/Debug/net7.0/AutoMapper.dll
+/home/cosmin/Facultate/DAW/ProiectTest/bin/Debug/net7.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
