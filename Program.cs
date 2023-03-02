@@ -44,7 +44,10 @@ void SeedData(IHost app)
 
     using (var scope = scopedFactory.CreateScope())
     {
-        var seeder = scope.ServiceProvider.GetService<CategorySeeder>();
-        seeder.SeedInitialCategories();
+        var seederCategory = scope.ServiceProvider.GetService<CategorySeeder>();
+        seederCategory.SeedInitialCategories();
+
+        var seederProduct = scope.ServiceProvider.GetService<ProductSeeder>();
+        seederProduct.SeedInitialProducts();
     }
 }

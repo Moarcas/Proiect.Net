@@ -25,6 +25,7 @@ namespace ProiectTest.Helper.Externsions
         public static IServiceCollection AddSeeders(this IServiceCollection services)
         {
             services.AddScoped<CategorySeeder>();
+            services.AddScoped<ProductSeeder>();
             return services;
         }
     }
