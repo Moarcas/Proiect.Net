@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ProiectTest.Data;
+using ProiectTest.Helper;
 using ProiectTest.Helper.Externsions;
 using ProiectTest.Helper.Seeders;
 using ProiectTest.ProductRepositoryy;
@@ -17,7 +18,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddServices();
 builder.Services.AddRepositories();
 builder.Services.AddSeeders();
-
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
+ 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();  

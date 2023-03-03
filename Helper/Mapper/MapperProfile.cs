@@ -9,7 +9,8 @@ namespace ProiectTest.Helper.Mapper
         public MapperProfile()
         {
             CreateMap<Product, ProductDTO>();
-            CreateMap<Category, CategoryDTO>();            
+            CreateMap<Category, CategoryDTO>();   
+            CreateMap<User, UserRequestDTO>();         
         }
     }
 }
